@@ -498,7 +498,10 @@ class AddonUpdaterUpdatedSuccessful(bpy.types.Operator):
 
     def invoke(self, context, event):
         #we need to restart BlenderKit daemon after update
-        daemon_lib.kill_daemon()
+        try:
+            daemon_lib.kill_daemon_server()
+        except:
+            pass
         return context.window_manager.invoke_props_popup(self, event)
 
     def draw(self, context):

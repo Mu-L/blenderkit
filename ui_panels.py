@@ -1941,7 +1941,7 @@ class AssetPopupCard(bpy.types.Operator, ratings_utils.RatingsProperties):
                                        'Most texture asset have also lower resolutions generated.\n' \
                                        'Go to BlenderKit add-on import settings to set default resolution')
 
-            if fs and len(fs) > 2 and utils.profile_is_validator():
+            if fs and len(fs) > 2:# and utils.profile_is_validator():
                 resolutions = ''
                 list.sort(fs, key=lambda f: f['fileType'])
                 for f in fs:
